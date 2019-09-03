@@ -1,0 +1,22 @@
+<h1> Create A New Gift Item </h1>
+
+<div class="gift-item">
+    <h5 class="errors"><% if flash[:errors] %>
+      <ul>
+        <% flash[:errors].each do |err| %>
+          <li>
+            <%= err %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %></h5>
+
+    <%= form_for @gift_item do |f| %>
+      <h5><%= f.label :item %></h5>
+      <%= f.text_field :item %>
+      <h5><%= f.submit %></h5>
+    <% end %>
+    <br>
+    <%= link_to "Find A User!(to send your gift to)", users_path %>
+    <%= link_to "See All Gifts", gift_items_path %>
+</div>

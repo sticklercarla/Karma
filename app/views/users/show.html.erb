@@ -1,0 +1,89 @@
+
+<% if @current_user == @user %>
+  <h1><%= "Welcome #{@current_user.username}!" %></h1>
+<% end %>
+
+
+<div class="flex-container">
+  <div>
+  <br>
+    <% if @user.pic == nil %>
+      <img src='https://avataaars.io/?avatarStyle=Circle&topType=LongHairFro&accessoriesType=Prescription02&hairColor=SilverGray&facialHairType=Blank&clotheType=Overall&clotheColor=PastelOrange&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=DarkBrown'
+      />
+    <% else %>
+     <img src=<%= @user.pic %> class=“media-object” style=“width:60px”>
+    <% end %>
+
+    <% if @current_user == @user %>
+      <h5><%= "#{@current_user.username}'s page" %></h5>
+    <% elsif @current_user.followees.include?(@user) %>
+      <h5><%= button_to "UnFollow #{@user.username}", unfollow_user_path, method: "POST" %></h5>
+    <% else %>
+      <h5><%= button_to "Follow #{@user.username}", follow_user_path, method: "POST"  %></h5>
+    <% end %>
+
+
+  </div>
+  <div>
+     <h4 class=“media-heading”><%= @user.username %></h4>
+     <p>Location: <br><%= @user.location %></p>
+     <p>Bio: <br><%= @user.bio %></p>
+     <br>
+     <p><%= @user.given_gifts.count %> <%= 'gift'.pluralize(@user.given_gifts.count) %> given</p>
+  </div>
+
+  <div id="followers">
+      <h4>Followers:</h4>
+        <% @user.followers.each do |follower| %>
+          <ul >
+            <li>
+              <%= link_to follower.username, user_path(follower.id) %>
+            </li>
+          </ul>
+        <% end %>
+  </div>
+  <div id="following">
+      <h4>Following:</h4>
+    <% @user.followees.each do |followee| %>
+      <ul >
+        <li>
+          <%= link_to followee.username, user_path(followee.id) %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+
+  <div>
+      <h4>Gifts Received:</h4>
+      <% if @current_user == @user %>
+        <p> You can't send yourself gifts, silly!! </p>
+        <p><%= link_to "Create New Gift Items", new_gift_item_path %></p>
+      <% else %>
+        <%= form_for @gift, url: create_gift_path do |f| %>
+          <%= f.label :gift_item_id %>
+          <%= f.hidden_field :receiver_id, value: @user.id %>
+          <%= f.hidden_field :giver_id, value: @current_user.id %>
+          <%= f.collection_select :gift_item_id, @gift_items, :id, :item %>
+          <h5><%= f.submit :class => 'button' %></h5>
+        <% end %>
+        <%= link_to "Don't See an Item here? Add A Gift Item!", new_gift_item_path %>
+      <% end %>
+      <br>
+    <% @user.top_five_gifts.each do |gift| %>
+      <ul>
+        <li id="gift-list">
+          <%= gift.giver.username %> gifted <%= gift.gift_item.item %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+</div>
+
+<div class="user-info">
+<% if @current_user == @user %>
+  <%= link_to "Update User Info", edit_user_path %><br>
+<% end %>
+
+<%= link_to "Search Users", users_path %>
+</div>
+<!-- carla.received_gifts.map {|gift| "#{gift.giver.username}, #{gift.deed.item}"} -->

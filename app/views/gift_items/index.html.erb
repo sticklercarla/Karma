@@ -1,0 +1,19 @@
+
+<h1>All Gifts Ever Created!!!</h1>
+<div class="gift-item-index">
+  <div class="section">
+    <ul>
+    <% @gift_items.each do |gift_item| %>
+    <li>
+      <%= gift_item.item%>
+    </li>
+    <% end %>
+    </ul>
+  </div>
+  <br>
+  <div class="section-2">
+    <%= link_to "Create A New Gift Item", new_gift_item_path %>
+    <br>
+    <%= link_to "Find users", users_path %>
+  </div>
+</div>

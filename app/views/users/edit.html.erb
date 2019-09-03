@@ -1,0 +1,34 @@
+<h1>Update User Info </h1>
+
+<h5 class="errors">
+  <% if flash[:errors] %>
+    <ul>
+      <% flash[:errors].each do |err| %>
+        <li>
+          <%= err %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %></h5>
+
+<div class="user-update">
+  <div>
+<% if @current_user == @user %>
+  <%= form_for @user do |f| %>
+    <div><%= f.label :username %></div>
+    <div><%= f.text_field :username %></div>
+    <div><%= f.label :location %></div>
+    <div><%= f.text_field :location %></div>
+    <div><%= f.label :bio %></div>
+    <div><%= f.text_area :bio %></div>
+    <div><%= f.label :pic %></div>
+    <div><%= f.text_area :pic %></div>
+    <div><%= f.submit %></div>
+  <% end %>
+  <br>
+  <%= link_to "Delete User FOREVER!", user_path(@user), method: :delete %>
+<% else %>
+  <p>You can't update other user profiles, silly!</p>
+<% end %>
+  </div>
+</div>

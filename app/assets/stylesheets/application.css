@@ -1,0 +1,165 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+img {
+  max-width: 250px;
+  border-radius: 25px;
+  box-shadow: 5px 5px 10px #666565;
+}
+
+.welcome {
+  display: block;
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 0px;
+  border: 1px solid black;
+  margin: 5%;
+  border-radius: 25px;
+  background-color: white;
+  box-shadow: 5px 5px 10px #666565;
+  
+}
+
+.home-page {
+  border: 2px solid #dddddd;
+  border-radius: 25px;
+  margin: 5%;
+  box-shadow: 5px 5px 10px #666565;
+  font-family: 'Montserrat', sans-serif;
+  background-image: url(./gift-image.jpg);
+  background-size: cover;
+}
+
+header, footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  margin: 5%;
+  padding: 1%;
+  border: 1px solid black;
+  border-radius: 25px;
+  box-shadow: 5px 5px 10px #666565;
+}
+
+.login {
+  display: flex;
+  justify-content: space-around;
+}
+
+h1, h3, h5{
+  text-align: center;
+}
+
+.user-info {
+  text-align: center;
+}
+
+body {
+  background-color: #262626;
+}
+
+.user-index {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  
+}
+
+.user-update {
+  display: flex;
+  justify-content: space-around;
+}
+
+.gift-item {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+.section {
+  /* display: flex;
+  justify-content: space-around;
+  flex-direction: column; */
+  margin: auto;
+  width: 40%;
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 10px;
+  background: white;
+  box-shadow: 5px 5px 10px #666565;
+}
+
+.section, ul, li {
+  color:  #666565;
+}
+
+.section-2 {
+  text-align: center;
+  
+}
+
+.registration {
+  text-align: center;
+}
+
+.validation {
+  color: red;
+}
+
+li {
+  list-style-type: none;
+}
+
+.errors, ul, li {
+  color: red;
+  padding: 0;
+}
+
+#gift-list {
+  /* overflow: scroll; */
+  color: #666565;
+}
+
+#users {
+  overflow: scroll;
+  height: 200px;
+  width: 200px;
+}
+
+#followers {
+  overflow: scroll;
+  height: 300px;
+  /* border: 1px black solid; */
+}
+
+#following {
+  overflow: scroll;
+  height: 300px;
+}
+
+a {
+  color: #262626
+}
+
+a:hover {
+  color: rgb(69, 200, 255);
+}

@@ -1,0 +1,32 @@
+
+<h1>Registration</h1>
+<h5 class="errors">
+  <% if flash[:errors] %>
+    <ul>
+      <% flash[:errors].each do |err| %>
+        <li>
+          <%= err %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %></h5>
+
+<div class="registration">
+<%= form_for @user do |f| %>
+  <div><%= f.label :username %></div>
+  <div><%= f.text_field :username %></div>
+  <div><%= f.label :location %></div>
+  <div><%= f.text_field :location %></div>
+  <div><%= f.label :bio %></div>
+  <div><%= f.text_area :bio %></div>
+
+  <div><%= f.label :password %></div>
+  <div><%= f.password_field :password %></div>
+  <div><%= f.label :password_confirmation %></div>
+  <div><%= f.password_field :password_confirmation %></div>
+  <br>
+  <%= f.submit %>
+<% end %>
+<br>
+<%= link_to "Back To Login", '/login' %>
+</div>
