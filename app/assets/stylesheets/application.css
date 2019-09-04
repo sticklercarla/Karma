@@ -29,7 +29,7 @@ img {
   display: flex;
   justify-content: space-around;
   margin-left: 0px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin: 5%;
   border-radius: 25px;
   background-color: white;
@@ -53,7 +53,7 @@ header, footer {
   background-color: white;
   margin: 5%;
   padding: 1%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 25px;
   box-shadow: 5px 5px 10px #666565;
 }
@@ -101,7 +101,7 @@ body {
   flex-direction: column; */
   margin: auto;
   width: 40%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 25px;
   padding: 10px;
   background: white;
